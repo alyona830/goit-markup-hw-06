@@ -22,12 +22,12 @@
   <!-- header section-->
   <body>
     <header class="header">
-      <div class="container">
-        <a href="./index.html" class="logo-header">
-          <span class="web-blue">Web</span>
-          <span class="studio-light">Studio</span>
-        </a>
+      <div class="container header-container">
         <nav class="nav-list">
+          <a href="./index.html" class="logo-header">
+            <span class="web-blue">Web</span>
+            Studio
+          </a>
           <ul class="nav-column">
             <li class="nav-list">
               <a href="" class="nav-list-link current">Studio</a>
@@ -50,18 +50,23 @@
             </li>
           </ul>
         </address>
+        <button class="burger-btn" type="button">
+          <svg class="burger-icon" width="24" height="24">
+            <use href=".//images/icons.svg#burger-icon"></use>
+          </svg>
+        </button>
       </div>
     </header>
     <!-- Hero section -->
     <main>
-      <section class="hero-section">
+      <section class="hero-section hidden">
         <div class="container">
           <h1 class="heading-title">Effective Solutions for Your Business</h1>
           <button type="button" class="hero-button">Order Service</button>
         </div>
       </section>
       <!-- Features section -->
-      <section class="features-section">
+      <section class="features-section hidden">
         <div class="container">
           <h2 class="visually-hidden">Our Features</h2>
           <ul class="features-list">
@@ -120,7 +125,7 @@
         </div>
       </section>
       <!-- Team section -->
-      <section class="team-section">
+      <section class="team-section hidden">
         <div class="container">
           <h2 class="caption-our-team">Our Team</h2>
 
@@ -303,7 +308,7 @@
         </div>
       </section>
       <!-- Portfolio section -->
-      <section class="portfolio-section">
+      <section class="portfolio-section hidden">
         <div class="container">
           <h2 class="headline-portfolio">Our Portfolio</h2>
           <ul class="portfolio-items">
@@ -406,7 +411,7 @@
     </main>
     <!-- Footer section -->
 
-    <footer class="footer">
+    <footer class="footer hidden">
       <div class="container">
         <div class="footer-content">
           <div class="footer-one-section">
@@ -482,7 +487,7 @@
       </div>
     </footer>
     <!-- Modal window -->
-    <div class="modal-overlay">
+    <div class="modal-overlay hidden">
       <div class="modal">
         <button class="modal-btn" type="button" aria-label="Close modal button">
           <svg class="svg-close" width="8" height="8">
