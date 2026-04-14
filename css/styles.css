@@ -903,7 +903,7 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
   .footer-one-section {
-    padding-left: 108px;
+    justify-self: flex-end;
   }
   .logo-footer {
     display: flex;
@@ -915,14 +915,16 @@ a {
   .footer-desc {
   }
   .footer-two-section {
+    margin-left: 24px;
   }
   .media-subtitle {
-    display: flex;
+    justify-content: flex-start;
   }
   .socials-list-footer {
+    justify-content: flex-start;
   }
   .social-items-list {
-    margin: 0 auto;
+    margin: 0;
   }
   .footer-social-link {
   }
@@ -930,7 +932,8 @@ a {
   }
   /*Footer form subcribe*/
   .footer-three-section {
-    padding-left: 108px;
+    display: block;
+    justify-self: flex-end;
   }
   .subscribe-item {
     display: flex;
@@ -938,16 +941,16 @@ a {
     flex-direction: row;
   }
   .footer-form {
-    display: flex;
-    gap: 24px;
-    align-items: center;
   }
   .subscribe-form-label {
   }
   .subscribe-input {
     width: 264px;
+
+    margin: 0;
   }
   .button-subcribe-footer {
+    margin: 0;
   }
   .icon-airplane {
   }
