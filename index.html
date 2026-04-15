@@ -51,23 +51,51 @@
             </li>
           </ul>
         </address>
+
         <button class="burger-btn" type="button">
           <svg class="burger-icon" width="24" height="24">
             <use href=".//images/icons.svg#burger-icon"></use>
           </svg>
         </button>
       </div>
+      <!-- Mobile menu -->
+      <div class="mobile-menu.is-open">
+        <div class="container mobile-menu-container">
+          <button class="btn-close-moblmenu">
+            Close
+            <svg class="close-icon-menu" width="" height="">
+              <use href="./images/icons.svg#close"></use>
+            </svg>
+          </button>
+          <nav class="nav-mobile-menu"></nav>
+          <address class="contacts-mobile-menu"></address>
+          <ul class="list-mobile-menu">
+            <li class="socials-item-moblmenu">
+              <a class="socials-link-moblmenu"></a>
+            </li>
+            <li class="socials-item-moblmenu">
+              <a class="socials-link-moblmenu"></a>
+            </li>
+            <li class="socials-item-moblmenu">
+              <a class="socials-link-moblmenu"></a>
+            </li>
+            <li class="socials-item-moblmenu">
+              <a class="socials-link-moblmenu"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
     <!-- Hero section -->
     <main>
-      <section class="hero-section">
+      <section class="hero-sectionhidden" hidden>
         <div class="container">
           <h1 class="heading-title">Effective Solutions for&nbsp;Your Business</h1>
           <button type="button" class="hero-button">Order Service</button>
         </div>
       </section>
       <!-- Features section -->
-      <section class="features-section">
+      <section class="features-section" hidden>
         <div class="container">
           <h2 class="visually-hidden">Our Features</h2>
           <ul class="features-list">
@@ -126,7 +154,7 @@
         </div>
       </section>
       <!-- Team section -->
-      <section class="team-section">
+      <section class="team-section" hidden>
         <div class="container">
           <h2 class="caption-our-team">Our Team</h2>
 
@@ -309,7 +337,7 @@
         </div>
       </section>
       <!-- Portfolio section -->
-      <section class="portfolio-section">
+      <section class="portfolio-sectionhidden" hidden>
         <div class="container">
           <h2 class="headline-portfolio">Our Portfolio</h2>
           <ul class="portfolio-items">
@@ -412,7 +440,7 @@
     </main>
     <!-- Footer section -->
 
-    <footer class="footer">
+    <footer class="footer" hidden>
       <div class="container">
         <div class="footer-content">
           <div class="footer-one-section">

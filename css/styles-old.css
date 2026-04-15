@@ -498,6 +498,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-family: Raleway, sans-serif;
+
   display: flex;
   justify-content: flex-start;
 }
