@@ -107,7 +107,7 @@ a {
 .web-blue {
   color: #4d5ae5;
 }
-
+/* Navigation */
 .nav-list {
   font-weight: 500;
 
@@ -157,6 +157,7 @@ a {
 .nav-list-link.current {
   color: #404bbf;
 }
+/* Contacts */
 .contacts-inform {
   color: #434455;
   font-style: normal;
