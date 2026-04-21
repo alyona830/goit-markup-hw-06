@@ -310,18 +310,106 @@ a {
   fill: rgba(46, 47, 66, 1);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* Navigation */
 .nav-mobile-menu {
+font-weight: 700;
+  font-size: 36px;
+  line-height: 111%;
+  color: #2E2F42;
+
+  margin-bottom: auto;
 }
+
+.nav-column-mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 40px;
+}
+.nav-link-moblmenu:focus,
+.nav-link-moblmenu:hover {
+  color: #404bbf;
+}
+.nav-list-moblmenu {}
+
+.nav-link-moblmenu {}
+/* Contacts */
 .contacts-mobile-menu {
+  font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    color: #434455;
+
+    font-style: normal;
 }
-.list-mobile-menu {
+
+.contacts-column-moblmenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 24px;
+
+  margin-bottom: 48px;
 }
-.socials-item-moblmenu {
+
+.contacts-list-moblmenu {
+ 
 }
+
+.contacts-link-moblmenu:focus,
+.contacts-link-moblmenu:hover {
+  color: #4D5AE5;
+}
+.contacts-link-moblmenu {
+  color: #434455;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Socials */
+.socials-column-moblmenu {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.socials-list-moblmenu {
+  background-color: #4d5ae5;
+
+display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+    height: 40px;
+  
+    border-radius: 50%;
+}
+
 .socials-link-moblmenu {
+  width: 40px;
+    height: 40px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: #4d5ae5;
+    border-radius: 50%;
+  
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.socials-link-moblmenu:hover, 
+.socials-link-moblmenu:focus {
+  background-color: #404bbf;
+ }
   /* 37:49 
   https://www.loom.com/share/bcac119269fe463680e3aad72163d33d?login_source=modal*/
-}
+
 @media only screen and (min-width: 768px) {
   .mobile-menu {
     display: none;
@@ -420,7 +508,7 @@ a {
 .features-list {
   display: flex;
 
-  flex-direction: column;
+  flex-wrap: wrap;
   text-align: left;
 
   gap: 72px;
@@ -456,6 +544,10 @@ a {
   .our-features-subtitle {
     text-align: left;
   }
+}
+/* tryyyyy */
+.bebra{
+  
 }
 @media only screen and (min-width: 1158px) {
   .features-section {
@@ -682,6 +774,7 @@ a {
   gap: 48px;
 }
 .portfolio-list {
+  
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* під питанням, на моб. пристроях */
@@ -807,6 +900,10 @@ a {
   background-color: #2e2f42;
 }
 .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .footer-one-section {
 }
@@ -840,6 +937,7 @@ a {
 
   margin-bottom: 72px;
 }
+/* Social media */
 .footer-two-section {
 }
 .media-subtitle {
@@ -847,11 +945,12 @@ a {
 
   color: #f4f4fd;
 
-  margin-bottom: 16px;
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
+  margin-bottom: 16px;
 }
 .socials-list-footer {
   display: flex;
