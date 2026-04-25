@@ -15,7 +15,9 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
 }
-body:has(.modal-overlay.is-open) {
+/* якщо у боді є ел. з класами is-open, то тоді приховується(блокується) скрол */
+body:has(.modal-overlay.is-open),
+body:has(.mobile-menu.is-open) {
   overflow-y: hidden;
 }
 
@@ -260,11 +262,15 @@ a {
   width: 100%;
   height: 100%;
 
+  /* віїзжає з правого боку + анімація */
+  transform: translateX(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   background-color: #ffffff;
 
-  transition:
+  /* transition:
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 
   opacity: 0;
   visibility: hidden;
@@ -274,6 +280,8 @@ a {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+
+  transform: translateX(0);
 }
 .mobile-menu-container {
   position: relative;
@@ -287,7 +295,7 @@ a {
   height: 100%;
 }
 .btn-close-moblmenu {
-  /* шукає найближчого предка не static */
+  /* шукає найближчого предка не static , прикрипили кнопку до контейнера */
   position: absolute;
   top: 24px;
   right: 24px;
@@ -313,6 +321,7 @@ a {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Navigation */
+/* плавний відступ, щоб завжди навігація була унизу */
 .nav-mobile-menu {
   margin-bottom: auto;
 }
@@ -364,6 +373,7 @@ a {
 .contacts-link-moblmenu:hover {
   color: #4d5ae5;
 } */
+/* синій колір телефону */
 .telephone-accent {
   color: #4d5ae5;
 }
@@ -412,14 +422,14 @@ a {
 }
 /* 37:49 
   https://www.loom.com/share/bcac119269fe463680e3aad72163d33d?login_source=modal*/
-
+/* ховаємо мобільне меню */
 @media only screen and (min-width: 768px) {
   .mobile-menu.is-open {
     display: none;
   }
 }
 @media only screen and (min-width: 1158px) {
-  .mobile-menu.is-open .mobile-menu-container {
+  .mobile-menu.is-open {
     display: none;
   }
 }
@@ -427,12 +437,11 @@ a {
 /* #region Hero */
 
 .hero-section {
-  display: none;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   align-items: center;
 
-  /* адаптувати зображення, зробити версії 1х 2х */
+  /* адаптували зображення, зробити версії 1х 2х */
   background-image:
     linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
     url('../images/background/bg-mobile.jpg');
@@ -825,18 +834,19 @@ a {
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* під питанням, на моб. пристроях */
-.portfolio-list:hover {
+.portfolio-list-item:hover {
   box-shadow:
     0 1px 6px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16),
     0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-list:hover .portfolio-overlay {
+.portfolio-list-item:hover .portfolio-overlay {
   transform: translateY(0);
 }
 
 /* зображення змінюються при зміні пристрою */
+/* обрізається на моб. пристроях */
 .portfolio-image img {
   width: 100%;
   height: 100%;
@@ -959,22 +969,23 @@ a {
 
   background-color: #2e2f42;
 }
-.footer-content {
+/* задаємо на увесь контент футера */
+.footer .container {
   display: flex;
-  flex-wrap: wrap;
-  /* align-items: center;
-  justify-content: center; */
+  flex-direction: column;
+  gap: 72px;
+
+  /* вирівнюємо "заголовки" */
+  text-align: center;
 }
+
 .footer-one-section {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
+  /* max-width: 288px; */
 }
 .logo-footer {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -993,31 +1004,28 @@ a {
 
 .footer-desc {
   max-width: 264px;
+
   margin-top: 16px;
 
   font-weight: 400;
-
   color: #f4f4fd;
 
-  margin-bottom: 72px;
+  text-align: left;
+  /* margin-bottom: 72px; */
 }
+
 /* Social media */
 .footer-two-section {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
 .media-subtitle {
   font-weight: 500;
 
   color: #f4f4fd;
 
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-  text-align: center;
   margin-bottom: 16px;
 }
 .socials-list-footer {
@@ -1034,7 +1042,7 @@ a {
   width: 40px;
   height: 40px;
 
-  margin-bottom: 72px;
+  /* margin-bottom: 72px; */
 }
 .footer-social-link {
   width: 100%;
@@ -1056,22 +1064,16 @@ a {
   background-color: #31d0aa;
 }
 .icon-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   fill: #f4f4fd;
 }
 /*Footer form subcribe*/
 .footer-three-section {
+  /* display: flex;
+  flex-direction: column;
+  gap: 16px; */
 }
 .subscribe-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   font-weight: 500;
-
   color: #f4f4fd;
 
   margin-bottom: 16px;
@@ -1079,6 +1081,9 @@ a {
 .footer-form {
 }
 .subscribe-form-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .subscribe-input {
   border: 1px solid rgba(255, 255, 255, 1);
@@ -1087,10 +1092,12 @@ a {
   border-color: #ffffff;
   color: #ffffff;
 
-  width: 288px;
+  /* width: 288px; */
+  width: 100%;
   height: 40px;
   padding: 8px 16px;
 
+  /* прозорий */
   background-color: transparent;
 
   font-weight: 400;
@@ -1114,7 +1121,9 @@ a {
   margin: 0 auto;
 
   padding: 8px 24px;
-  /* width: 165px; */
+
+  min-width: 165px;
+  min-height: 40px;
 
   border-radius: 4px;
   background: rgba(77, 90, 229, 1);
@@ -1141,12 +1150,25 @@ a {
 @media only screen and (min-width: 768px) {
   .footer {
   }
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .footer .container {
+    /* йдуть рядком, і перенос рядка */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* заголовки по лівій стороні */
+    text-align: left;
+  }
+  /* стискаємо падінгами контейнер у футері (як робили у team-section) задаємо медіа запит щоб стиснення було тільки на tablet */
+  @media only screen and (min-width: 768px) and (max-width: 1157.98px) {
+    .footer .container {
+      padding: 0 108px;
+
+      gap: 72px 24px;
+      /* row-gap: 72px; */
+    }
   }
   .footer-one-section {
     justify-self: flex-end;
+    /* max-width: 264px; */
   }
   .logo-footer {
     display: flex;
@@ -1158,7 +1180,6 @@ a {
   .footer-desc {
   }
   .footer-two-section {
-    margin-left: 24px;
   }
   .media-subtitle {
     justify-content: flex-start;
@@ -1175,15 +1196,17 @@ a {
   }
   /*Footer form subcribe*/
   .footer-three-section {
-    display: block;
-    justify-self: flex-end;
+    /* максимальний розмір секції */
+    /* max-width: 453px;
+    width: 100%; */
   }
   .subscribe-item {
     display: flex;
     justify-content: flex-start;
-    flex-direction: row;
   }
   .footer-form {
+    display: flex;
+    flex-direction: row;
   }
   .subscribe-form-label {
   }
@@ -1193,7 +1216,7 @@ a {
     margin: 0;
   }
   .button-subcribe-footer {
-    margin: 0;
+    margin-left: 24px;
   }
   .icon-airplane {
   }
@@ -1203,14 +1226,16 @@ a {
     padding-top: 100px;
     padding-bottom: 100px;
   }
-  .footer-content {
-    display: flex;
-    align-items: baseline;
+  .footer .container {
+    flex-wrap: nowrap;
+    gap: 0;
   }
+
   .footer-one-section {
     margin-right: 120px;
   }
   .logo-footer {
+    margin-bottom: 16px;
   }
   .logo-footer-web {
   }
@@ -1221,7 +1246,7 @@ a {
     justify-content: flex-start;
   }
   .footer-two-section {
-    margin: 0;
+    margin-right: auto;
   }
   .media-subtitle {
   }
@@ -1237,15 +1262,13 @@ a {
   }
   /*Footer form subcribe*/
   .footer-three-section {
-    margin-left: auto;
+    /* margin-left: auto; */
   }
   .subscribe-item {
     text-align: left;
   }
   .footer-form {
     display: flex;
-    gap: 24px;
-
     align-items: center;
   }
   .subscribe-form-label {
@@ -1256,6 +1279,377 @@ a {
   .button-subcribe-footer {
   }
   .icon-airplane {
+  }
+}
+/* #endregion */
+/* #region Modal window */
+/* Модальне вікно, основа */
+.modal-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(46 47 66 / 40%);
+
+  transition: 300ms ease-in 150ms;
+  transition-property: opacity, visibility;
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: initial;
+  transition-delay: 0ms;
+}
+.modal {
+  width: 288px;
+  /* якщо телефон буде більший висота ще буде більше, не фіксуємо */
+  min-height: 623px;
+
+  background-color: #fcfcfc;
+  border-radius: 4px;
+  box-shadow:
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-70%);
+
+  padding: 72px 16px 24px 16px;
+
+  opacity: 0;
+
+  transition-property: opacity, transform;
+  transition: 150ms ease;
+}
+.modal-overlay.is-open .modal {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-50%);
+  transition-delay: 300ms;
+}
+.modal-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  background-color: #e7e9fc;
+  stroke: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
+}
+.svg-close {
+  fill: rgba(46, 47, 66, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: #404bbf;
+}
+.modal-btn:hover .svg-close,
+.modal-btn:focus .svg-close {
+  fill: #ffffff;
+}
+.modal-slogan {
+  font-weight: 500;
+
+  text-align: center;
+  color: #2e2f42;
+
+  margin-bottom: 16px;
+}
+
+/* РЕГЕСТРАЦІЯ */
+
+.feedback-form {
+}
+.feedback-wrapper {
+  margin-bottom: 8px;
+}
+.feedback-label {
+  display: block;
+  margin-bottom: 4px;
+
+  color: rgba(142, 143, 153, 1);
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+.feedback-field {
+  position: relative;
+}
+.feedback-input {
+  border-radius: 4px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  width: 100%;
+  height: 40px;
+
+  outline: none;
+  /*прозора рамка палочки тексту, робить так щоб текст був посередині сірої рамки*/
+
+  padding: 11px 34px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.feedback-input:focus {
+  border-color: rgba(77, 90, 229, 1);
+}
+.feedback-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+
+  pointer-events: none;
+  transform: translateY(-50%);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* якщо натискають на поле-воно отримує фокус тоді іконка міняє колір */
+.feedback-input:focus + .feedback-icon {
+  fill: #4d5ae5;
+}
+.feedback-wrapper-comment {
+  margin: 0;
+}
+.comment-form {
+  height: 120px;
+  width: 100%;
+
+  /*прозора рамка палочки тексту, робить так щоб текст був посередині сірої рамки*/
+  padding: 8px 16px;
+
+  margin-bottom: 16px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  border-radius: 4px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+
+  /* забороняє корист. змінювати розмір коментаря */
+  resize: none;
+  /* прибирає контур коментаря(інпута) при фокусі */
+  outline: none;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.comment-form::placeholder {
+  /* змінює колір Text input */
+  color: rgba(46, 47, 66, 0.4);
+}
+.comment-form:focus {
+  border-color: rgba(77, 90, 229, 1);
+}
+
+/*CUSTOM  CHECKBOX */
+
+.user-checkbox-label {
+  display: block;
+
+  margin-bottom: 24px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  text-align: left;
+
+  color: #8e8f99;
+}
+.user-checkbox-input {
+}
+.feedback-toggler {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 16px;
+  height: 16px;
+
+  margin-right: 8px;
+
+  border-radius: 2px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
+}
+.user-checkbox-input:checked + .feedback-toggler {
+  background-color: #404bbf;
+}
+
+/* ІКОНКА ГАЛОЧКА */
+
+.feedback-toggler-icon {
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #f4f4fd;
+}
+/* коли чекбокс у активному стані, іконка галочки стає видною */
+.user-checkbox-input:checked + .feedback-toggler > .feedback-toggler-icon {
+  opacity: 1;
+}
+.feedback-toggler-icon {
+}
+.feedback-link-policy {
+  line-height: 1.3;
+  /* робить підкреслення знизу */
+  text-decoration: underline;
+
+  /* домальовує лінію підкреслення, навіть якщо вона переривається літерами */
+  text-decoration-skip-ink: none;
+  color: #4d5ae5;
+}
+.button-form {
+  width: 169px;
+
+  display: block;
+  margin: 0 auto;
+
+  cursor: pointer;
+
+  padding: 16px 32px 16px 32px;
+
+  border-radius: 4px;
+  color: #ffffff;
+  background: rgba(77, 90, 229, 1);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  border: none;
+
+  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+@media only screen and (min-width: 768px) {
+  .modal-overlay {
+  }
+  .modal-overlay.is-open {
+  }
+  .modal {
+    width: 408px;
+    min-height: 584px;
+
+    padding: 72px 24px 24px 24px;
+  }
+  .modal-btn {
+  }
+  .svg-close {
+  }
+  .modal-slogan {
+  }
+
+  /* РЕГЕСТРАЦІЯ */
+
+  .feedback-form {
+  }
+  .feedback-wrapper {
+  }
+  .feedback-label {
+  }
+  .feedback-field {
+  }
+  .feedback-input {
+  }
+  .feedback-icon {
+  }
+  .feedback-wrapper-comment {
+  }
+  .comment-form {
+  }
+  .user-checkbox-label {
+  }
+  .user-checkbox-input {
+  }
+  .feedback-toggler {
+  }
+  .feedback-toggler-icon {
+  }
+  .feedback-link-policy {
+  }
+  .button-form {
+  }
+}
+@media only screen and (min-width: 1158px) {
+  .modal-overlay {
+  }
+  .modal-overlay.is-open {
+  }
+  .modal {
+    width: 408px;
+    min-height: 584px;
+
+    padding: 62px 24px 24px 34px;
+  }
+  .modal-btn {
+    top: 14px;
+    right: 23px;
+  }
+  .svg-close {
+  }
+  .modal-slogan {
+  }
+
+  /* РЕГЕСТРАЦІЯ */
+
+  .feedback-form {
+  }
+  .feedback-wrapper {
+  }
+  .feedback-label {
+  }
+  .feedback-field {
+  }
+  .feedback-input {
+    padding: 11px 38px;
+  }
+  .feedback-icon {
+  }
+  .feedback-wrapper-comment {
+  }
+  .comment-form {
+  }
+
+  /*CUSTOM  CHECKBOX */
+
+  .user-checkbox-label {
+  }
+  .user-checkbox-input {
+  }
+  .feedback-toggler {
+  }
+
+  /* ІКОНКА ГАЛОЧКА */
+
+  .feedback-toggler-icon {
+  }
+  .feedback-link-policy {
+  }
+
+  .button-form {
   }
 }
 /* #endregion */
