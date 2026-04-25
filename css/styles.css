@@ -219,9 +219,6 @@ a {
     gap: 12px;
     display: flex;
     flex-direction: column;
-
-    padding-top: 16px;
-    padding-bottom: 16px;
   }
   .contacts-link {
     color: #434455;
@@ -373,6 +370,7 @@ a {
 .contacts-link-moblmenu:hover {
   color: #4d5ae5;
 } */
+
 /* синій колір телефону */
 .telephone-accent {
   color: #4d5ae5;
@@ -393,9 +391,9 @@ a {
 .socials-list-moblmenu {
   background-color: #4d5ae5;
 
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
   width: 40px;
   height: 40px;
@@ -435,7 +433,6 @@ a {
 }
 /* #endregion */
 /* #region Hero */
-
 .hero-section {
   display: flex;
   justify-content: center;
@@ -582,10 +579,15 @@ a {
   font-weight: 500;
   color: #434455;
 }
-
 @media only screen and (min-width: 768px) {
   .features-list {
-    gap: 24px;
+    gap: 0;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .features-list {
+    column-gap: 24px;
+    row-gap: 72px;
   }
   .features-list-item {
     width: calc((100% - 24px) / 2);
@@ -834,12 +836,12 @@ a {
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* під питанням, на моб. пристроях */
-.portfolio-list-item:hover {
+/* .portfolio-list-item:hover {
   box-shadow:
     0 1px 6px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16),
     0 2px 1px 0 rgba(46, 47, 66, 0.08);
-}
+} */
 
 .portfolio-list-item:hover .portfolio-overlay {
   transform: translateY(0);
@@ -950,12 +952,19 @@ a {
   .portfolio-list-item {
     width: calc((100% - 48px) / 3);
   }
+  .portfolio-list-item:hover {
+    box-shadow:
+      0 1px 6px 0 rgba(46, 47, 66, 0.08),
+      0 1px 1px 0 rgba(46, 47, 66, 0.16),
+      0 2px 1px 0 rgba(46, 47, 66, 0.08);
+  }
   .portfolio-image {
     max-width: 360px;
   }
   .portfolio-overlay {
   }
   .portfolio-grid {
+    box-shadow: none;
   }
   .portfolio-subtitle {
   }
