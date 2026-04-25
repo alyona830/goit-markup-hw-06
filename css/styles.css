@@ -1097,6 +1097,7 @@ a {
   height: 40px;
   padding: 8px 16px;
 
+  outline: none;
   /* прозорий */
   background-color: transparent;
 
@@ -1409,7 +1410,6 @@ a {
 
   outline: none;
   /*прозора рамка палочки тексту, робить так щоб текст був посередині сірої рамки*/
-
   padding: 11px 34px;
 
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
