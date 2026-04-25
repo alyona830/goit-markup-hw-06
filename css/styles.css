@@ -515,7 +515,7 @@ a {
     font-size: 56px;
     line-height: 1.07;
 
-    margin-bottom: 32px;
+    margin-bottom: 36px;
     max-width: 496px;
   }
 }
@@ -1562,7 +1562,8 @@ a {
     width: 408px;
     min-height: 584px;
 
-    padding: 72px 24px 24px 24px;
+    padding-right: 24px;
+    padding-left: 24px;
   }
   .modal-btn {
   }
@@ -1610,8 +1611,6 @@ a {
   .modal {
     width: 408px;
     min-height: 584px;
-
-    padding: 62px 24px 24px 34px;
   }
   .modal-btn {
     top: 14px;
