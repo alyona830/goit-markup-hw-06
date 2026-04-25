@@ -88,8 +88,8 @@ a {
   margin: 0 auto;
   padding: 0 16px;
 
-  /* outline: 2px solid red;
-  outline-offset: -2px; */
+  outline: 2px solid red;
+  outline-offset: -2px;
 }
 @media only screen and (min-width: 768px) {
   .container {
@@ -245,9 +245,10 @@ a {
     padding-bottom: 24px;
   }
   .contacts-link {
+    font-weight: 400;
     font-size: 16px;
-
     line-height: 1.5;
+    letter-spacing: 0.02em;
   }
 }
 /* #endregion */
@@ -406,7 +407,8 @@ a {
   height: 40px;
 
   display: flex;
-  justify-content: center;
+  /* стає у центр елемента */
+  justify-content: space-around;
   align-items: center;
 
   background-color: #4d5ae5;
@@ -552,13 +554,16 @@ a {
 }
 .features-list {
   display: flex;
-
   flex-wrap: wrap;
+
   text-align: left;
 
   gap: 72px;
 }
-
+.features-list-item {
+  width: 100%;
+  /* width: 288px; */
+}
 /* svg */
 .our-features-icon {
   display: none;
@@ -605,7 +610,7 @@ a {
 
   .features-list {
     display: flex;
-    align-items: flex-start;
+    align-items: flt;
     justify-content: flex-start;
     flex-direction: row;
     gap: 24px;
@@ -650,8 +655,6 @@ a {
   padding-bottom: 96px;
 }
 .team-section .container {
-  padding-left: 12px;
-  padding-right: 12px;
 }
 .caption-our-team {
   font-weight: 700;
@@ -778,9 +781,7 @@ a {
     padding-top: 120px;
     padding-bottom: 120px;
   }
-  /* під питанням */
   .team-section .container {
-    padding: 0;
   }
   .container {
   }
@@ -788,9 +789,9 @@ a {
   }
   .team-list {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
+    /* flex-direction: row; */
+    flex-wrap: nowrap;
     gap: 24px;
   }
   .team-item {
